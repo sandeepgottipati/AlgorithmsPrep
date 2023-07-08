@@ -2,15 +2,7 @@
 
 > <b> <i> <span style="color:rgba(10,200,0,0.5)"> HashSet Implementation</span> <i></b>
 
-```code
-Design a HashSet without using any built-in hash table libraries.
-
-Implement MyHashSet class:
-
-void add(key) Inserts the value key into the HashSet.
-bool contains(key) Returns whether the value key exists in the HashSet or not.
-void remove(key) Removes the value key in the HashSet. If key does not exist in the HashSet, do nothing.
-```
+[problem statement](https://leetcode.com/problems/design-hashset/)
 
 <details>
 <summary>Implementation</summary>
@@ -69,15 +61,16 @@ class MyHashSet {
 <span style="color:rgba(200,10,0,0.5)">TC:O(1)</span>
 <span style="color:rgba(200,10,0,0.5)">SC:O(N)</span>
 
-## </details>
+</details>
 
 ---
 
 > <b> <i> <span style="color:rgba(10,200,0,0.5)"> MinStack</span> <i></b>
 
-[statement](https://leetcode.com/problems/min-stack/)
+[problem statement](https://leetcode.com/problems/min-stack/)
 
 <details>
+
 <summary>
 Intuition
 
@@ -124,3 +117,73 @@ perform the same operation on Stack 2 as well.
 ```
 
 </details>
+
+---
+
+> <span style="color:rgba(10,200,0,0.5)"><i>Implement Queue using Stack </i></span>
+
+[problem statement](https://leetcode.com/problems/implement-queue-using-stacks/)
+
+<details>
+<summary>
+Intuition
+</summary>
+
+**HINT:** use two stacks to implement queue functionality.
+
+<p><i> For the pop and Peek operation we need to transfer all the elements to outer stack from inner stack. And for pop and peek first we need to check if the outer stack is empty and if the inner stack has element pop all the elements in the inner stack and push them into the outer stack.
+And just return the top element in outer stack for peek or pop the first element in the outer stack.</i> </p>
+
+</details>
+
+---
+
+> <span style="color:rgba(10,200,0,0.5)"><i>Implement HashMap </i></span>
+
+[problem statement](https://leetcode.com/problems/design-hashmap/)
+
+<details>
+<summary>
+Intuition
+
+</summary>
+
+```java
+   class Node{
+        int key;
+        int value;
+        Node next;
+        Node(int key,int value){
+            this.key=key;
+            this.value=value;
+
+        }
+    }
+    Node[] nodes;
+    int bucketSize;
+    public MyHashMap() {
+        bucketSize=1000;
+        nodes=new Node[bucketSize];
+
+    }
+    /* Main Logic*/
+    private Node find(Node node,int key){
+        Node prev=node;
+        Node curr=node.next;
+        while(curr!=null && prev.next.key!=key){
+            prev=curr;
+            curr=curr.next;
+        }
+        return prev;
+    }
+    private int getHashCode(int key){
+        return Integer.hashCode(key)%bucketSize;
+    }
+```
+
+<span style="color:rgba(200,10,0,0.5)">TC:O(N)</span>
+<span style="color:rgba(200,10,0,0.5)">SC:O(N)</span>
+
+</details>
+
+---
