@@ -1,7 +1,7 @@
 
 
-*.DS_Store
-
+../.DS_Store
+./.idea
 ../Arrays.docx
 ../JS_Notes.docx
 ./idea
